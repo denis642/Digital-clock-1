@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock with Glowing effect </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<div>
+    <div class="wrapper">
+        <div class="display">
+        <div id="time"></div>
+        </div>
+    </div> 
+    <span></span>
+    <span></span>
+</div>
+<script>
+    setInterval(() => {
+        const time = document.querySelector("#time");
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+
+        let day_night = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12; // Convert midnight (0) to 12
+
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+
+        time.textContent = hours + ":" + minutes + ":" + seconds + " " + day_night;
+    });
+</script>
+
+
+    
+</body>
+</html>
